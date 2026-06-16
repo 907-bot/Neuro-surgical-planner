@@ -1,0 +1,325 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - heading "🧠 Surgical Planner" [level=1] [ref=e15]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e19]
+      - generic [ref=e22]:
+        - paragraph [ref=e26]: Tumor Size
+        - generic [ref=e27]:
+          - slider "Tumor Size" [ref=e31]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e35]:
+        - paragraph [ref=e39]: Edema Volume
+        - generic [ref=e40]:
+          - slider "Edema Volume" [ref=e44]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e48]:
+        - paragraph [ref=e52]: Intracranial Pressure
+        - generic [ref=e53]:
+          - slider "Intracranial Pressure" [ref=e57]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e61]:
+        - paragraph [ref=e65]: Blood Flow
+        - generic [ref=e66]:
+          - slider "Blood Flow" [ref=e70]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e74]:
+        - paragraph [ref=e78]: Inflammatory Response
+        - generic [ref=e79]:
+          - slider "Inflammatory Response" [ref=e83]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e89]
+      - generic [ref=e92]:
+        - paragraph [ref=e96]: Monte-Carlo Simulations
+        - generic [ref=e97]:
+          - slider "Monte-Carlo Simulations" [ref=e101]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e107]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e110]:
+        - generic [ref=e113]:
+          - button "Deploy" [ref=e115] [cursor=pointer]:
+            - generic [ref=e117]: Deploy
+          - button "Main menu" [ref=e119] [cursor=pointer]:
+            - img [ref=e120]
+      - generic [ref=e123]:
+        - heading "🧠 Causal Brain Tumor Surgical Planner" [level=1] [ref=e128]:
+          - text: 🧠 Causal Brain Tumor Surgical Planner
+          - generic [ref=e129]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e134]: Pearl Do-Calculus × Counterfactual Simulation × Monte-Carlo Path Search
+        - heading "Baseline Physiological State" [level=3] [ref=e139]:
+          - text: Baseline Physiological State
+          - generic [ref=e140]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e142]:
+          - generic [ref=e147]:
+            - paragraph [ref=e150]: Blood Flow
+            - paragraph [ref=e153]: 85%
+            - generic [ref=e155]:
+              - img [ref=e156]
+              - paragraph [ref=e160]: +15%
+          - generic [ref=e165]:
+            - paragraph [ref=e168]: Oxygen Sat
+            - paragraph [ref=e171]: 94%
+          - generic [ref=e176]:
+            - paragraph [ref=e179]: ICP
+            - paragraph [ref=e182]: 27%
+            - generic [ref=e184]:
+              - img [ref=e185]
+              - paragraph [ref=e189]: +12%
+          - generic [ref=e194]:
+            - paragraph [ref=e197]: Neural Function
+            - paragraph [ref=e200]: 85%
+          - generic [ref=e205]:
+            - paragraph [ref=e208]: Recovery Score
+            - paragraph [ref=e211]: 63%
+        - generic [ref=e213]:
+          - generic [ref=e215]:
+            - heading "Causal Variable Web" [level=3] [ref=e220]:
+              - text: Causal Variable Web
+              - generic [ref=e221]:
+                - link "Link to heading":
+                  - /url: "#causal-variable-web"
+                  - img
+            - generic [ref=e227]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: tumorsize
+                              - generic:
+                                - generic: edemavolume
+                              - generic:
+                                - generic: vascularcompression
+                              - generic:
+                                - generic: bloodflow
+                              - generic:
+                                - generic: oxygensaturation
+                              - generic:
+                                - generic: intracranialpressure
+                              - generic:
+                                - generic: masseffect
+                              - generic:
+                                - generic: metabolicrate
+                              - generic:
+                                - generic: neuralfunction
+                              - generic:
+                                - generic: inflammatoryresponse
+                              - generic:
+                                - generic: recoveryscore
+                              - generic:
+                                - generic: surgicalrisk
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: "0"
+                      - generic:
+                        - generic: "0.2"
+                      - generic:
+                        - generic: "0.4"
+                      - generic:
+                        - generic: "0.6"
+                      - generic:
+                        - generic: "0.8"
+                      - generic:
+                        - generic: "1"
+                    - generic:
+                      - generic:
+                        - generic: Value
+              - toolbar [ref=e241]:
+                - button "Download plot as a PNG" [ref=e243] [cursor=pointer]:
+                  - img [ref=e244]
+                - generic [ref=e246]:
+                  - button "Zoom" [ref=e247] [cursor=pointer]:
+                    - img [ref=e248]
+                  - button "Pan" [ref=e250] [cursor=pointer]:
+                    - img [ref=e251]
+                - generic [ref=e253]:
+                  - button "Zoom in" [ref=e254] [cursor=pointer]:
+                    - img [ref=e255]
+                  - button "Zoom out" [ref=e257] [cursor=pointer]:
+                    - img [ref=e258]
+                  - button "Autoscale" [ref=e260] [cursor=pointer]:
+                    - img [ref=e261]
+                  - button "Reset axes" [ref=e263] [cursor=pointer]:
+                    - img [ref=e264]
+                - button "Fullscreen" [ref=e267] [cursor=pointer]:
+                  - img [ref=e268]
+              - img
+          - generic [ref=e271]:
+            - heading "All do() Interventions" [level=3] [ref=e276]:
+              - text: All do() Interventions
+              - generic [ref=e277]:
+                - link "Link to heading":
+                  - /url: "#all-do-interventions"
+                  - img
+            - generic [ref=e282]:
+              - button "Show/hide columns" [ref=e286] [cursor=pointer]:
+                - img [ref=e287]
+              - button "Download as CSV" [ref=e292] [cursor=pointer]:
+                - img [ref=e293]
+              - button "Search" [ref=e298] [cursor=pointer]:
+                - img [ref=e299]
+              - button "Fullscreen" [ref=e304] [cursor=pointer]:
+                - img [ref=e305]
+        - separator [ref=e320]
+        - heading "🎲 Monte-Carlo Surgical Path Search" [level=3] [ref=e325]:
+          - text: 🎲 Monte-Carlo Surgical Path Search
+          - generic [ref=e326]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - button "▶ Run Search" [active] [ref=e329] [cursor=pointer]:
+          - paragraph [ref=e333]: ▶ Run Search
+        - generic [ref=e424]:
+          - generic [ref=e432]:
+            - img:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: Recovery
+                    - generic:
+                      - generic: Low Risk
+                    - generic:
+                      - generic: Low Blood Loss
+                    - generic:
+                      - generic: Neural Safety
+                    - generic:
+                      - generic: Fast ICU
+                  - generic:
+                    - generic:
+                      - generic: "0"
+                    - generic:
+                      - generic: "0.2"
+                    - generic:
+                      - generic: "0.4"
+                    - generic:
+                      - generic: "0.6"
+                    - generic:
+                      - generic: "0.8"
+                    - generic:
+                      - generic: "1"
+            - img:
+              - generic [ref=e441]:
+                - generic [ref=e443]: "#1: biopsy only"
+                - generic [ref=e452]: "#2: ablate tissue"
+                - generic [ref=e461]: "#3: remove tumor partial"
+                - generic [ref=e470]: "#4: radiosurgery"
+                - generic [ref=e479]: "#5: debulk tumor"
+            - toolbar [ref=e487]:
+              - button "Download plot as a PNG" [ref=e489] [cursor=pointer]:
+                - img [ref=e490]
+              - button "Zoom" [ref=e493] [cursor=pointer]:
+                - img [ref=e494]
+              - button "Fullscreen" [ref=e497] [cursor=pointer]:
+                - img [ref=e498]
+            - img
+          - generic [ref=e501]:
+            - generic [ref=e506]:
+              - text: "#1 Biopsy Only"
+              - text: "Recovery: 64% | Risk: 8% | Utility: +0.556"
+              - text: "ICU: 3.6 days | Blood loss: 355 mL"
+              - text: "95% CI: [61%, 66%]"
+            - generic [ref=e511]:
+              - text: "#2 Ablate Tissue"
+              - text: "Recovery: 68% | Risk: 15% | Utility: +0.532"
+              - text: "ICU: 3.2 days | Blood loss: 368 mL"
+              - text: "95% CI: [66%, 71%]"
+            - generic [ref=e516]:
+              - text: "#3 Remove Tumor Partial"
+              - text: "Recovery: 71% | Risk: 20% | Utility: +0.507"
+              - text: "ICU: 2.9 days | Blood loss: 373 mL"
+              - text: "95% CI: [68%, 73%]"
+            - generic [ref=e521]:
+              - text: "#4 Radiosurgery"
+              - text: "Recovery: 61% | Risk: 12% | Utility: +0.489"
+              - text: "ICU: 3.9 days | Blood loss: 347 mL"
+              - text: "95% CI: [59%, 63%]"
+            - generic [ref=e526]:
+              - text: "#5 Debulk Tumor"
+              - text: "Recovery: 73% | Risk: 28% | Utility: +0.450"
+              - text: "ICU: 2.7 days | Blood loss: 380 mL"
+              - text: "95% CI: [70%, 76%]"
+        - separator [ref=e530]
+        - heading "🔁 Counterfactual Explorer" [level=3] [ref=e534]:
+          - text: 🔁 Counterfactual Explorer
+          - generic [ref=e535]:
+            - link "Link to heading":
+              - /url: "#counterfactual-explorer"
+              - img
+        - paragraph [ref=e540]: "Ask: 'What would recovery have been if we had done X instead of Y?'"
+        - generic [ref=e542]:
+          - generic [ref=e546]:
+            - paragraph [ref=e550]: Factual action (what happened)
+            - generic [ref=e552]:
+              - generic [ref=e553]:
+                - generic [ref=e554]: (no surgery)
+                - combobox "Selected (no surgery). Factual action (what happened)" [ref=e556]
+              - img "open" [ref=e558]
+          - generic [ref=e563]:
+            - paragraph [ref=e567]: Counterfactual action (what if...)
+            - generic [ref=e569]:
+              - generic [ref=e570]:
+                - generic [ref=e571]: remove_tumor_partial
+                - combobox "Selected remove_tumor_partial. Counterfactual action (what if...)" [ref=e573]
+              - img "open" [ref=e575]
+          - button "Run Counterfactual" [ref=e581] [cursor=pointer]:
+            - paragraph [ref=e585]: Run Counterfactual
+        - separator [ref=e586]
+        - paragraph [ref=e591]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e405]

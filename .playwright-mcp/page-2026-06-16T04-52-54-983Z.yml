@@ -1,0 +1,347 @@
+- generic [active]:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e1892]:
+        - paragraph [ref=e1896]: Navigation
+        - radiogroup "Navigation" [ref=e1897] [cursor=pointer]:
+          - generic [ref=e1898]:
+            - radio "🏠 Surgical Planner" [checked]
+            - paragraph [ref=e1903]: 🏠 Surgical Planner
+          - generic [ref=e1904]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e1909]: 👥 Patient Management
+          - generic [ref=e1910]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e1915]: 📊 Simulation Monitor
+          - generic [ref=e1916]:
+            - radio "📈 Comparative Analysis"
+            - paragraph [ref=e1921]: 📈 Comparative Analysis
+          - generic [ref=e1922]:
+            - radio "📤 Export & Reports"
+            - paragraph [ref=e1927]: 📤 Export & Reports
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "🧠 Causal Brain Tumor Surgical Planner" [level=1] [ref=e1936]:
+          - text: 🧠 Causal Brain Tumor Surgical Planner
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Pearl Do-Calculus × Counterfactual Simulation × Monte-Carlo Path Search
+        - heading "Baseline Physiological State" [level=3] [ref=e1941]:
+          - text: Baseline Physiological State
+          - generic [ref=e1942]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e1944]:
+          - generic [ref=e1949]:
+            - paragraph [ref=e1952]: Blood Flow
+            - paragraph [ref=e1955]: 85%
+            - generic [ref=e1957]:
+              - img [ref=e1958]
+              - paragraph [ref=e1962]: +15%
+          - generic [ref=e1967]:
+            - paragraph [ref=e1970]: Oxygen Sat
+            - paragraph [ref=e1973]: 94%
+          - generic [ref=e1978]:
+            - paragraph [ref=e1981]: ICP
+            - paragraph [ref=e1984]: 27%
+            - generic [ref=e1986]:
+              - img [ref=e1987]
+              - paragraph [ref=e1991]: +12%
+          - generic [ref=e1996]:
+            - paragraph [ref=e1999]: Neural Function
+            - paragraph [ref=e2002]: 85%
+          - generic [ref=e2007]:
+            - paragraph [ref=e2010]: Recovery Score
+            - paragraph [ref=e2013]: 63%
+        - generic [ref=e2015]:
+          - generic [ref=e2017]:
+            - heading "Causal Variable Web" [level=3] [ref=e2022]:
+              - text: Causal Variable Web
+              - generic [ref=e2023]:
+                - link "Link to heading":
+                  - /url: "#causal-variable-web"
+                  - img
+            - generic [ref=e2029]:
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - generic: tumorsize
+                              - generic:
+                                - generic: edemavolume
+                              - generic:
+                                - generic: vascularcompression
+                              - generic:
+                                - generic: bloodflow
+                              - generic:
+                                - generic: oxygensaturation
+                              - generic:
+                                - generic: intracranialpressure
+                              - generic:
+                                - generic: masseffect
+                              - generic:
+                                - generic: metabolicrate
+                              - generic:
+                                - generic: neuralfunction
+                              - generic:
+                                - generic: inflammatoryresponse
+                              - generic:
+                                - generic: recoveryscore
+                              - generic:
+                                - generic: surgicalrisk
+              - img:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic: "0"
+                      - generic:
+                        - generic: "0.2"
+                      - generic:
+                        - generic: "0.4"
+                      - generic:
+                        - generic: "0.6"
+                      - generic:
+                        - generic: "0.8"
+                      - generic:
+                        - generic: "1"
+                    - generic:
+                      - generic:
+                        - generic: Value
+              - toolbar [ref=e2043]:
+                - button "Download plot as a PNG" [ref=e2045] [cursor=pointer]:
+                  - img [ref=e2046]
+                - generic [ref=e2048]:
+                  - button "Zoom" [ref=e2049] [cursor=pointer]:
+                    - img [ref=e2050]
+                  - button "Pan" [ref=e2052] [cursor=pointer]:
+                    - img [ref=e2053]
+                - generic [ref=e2055]:
+                  - button "Zoom in" [ref=e2056] [cursor=pointer]:
+                    - img [ref=e2057]
+                  - button "Zoom out" [ref=e2059] [cursor=pointer]:
+                    - img [ref=e2060]
+                  - button "Autoscale" [ref=e2062] [cursor=pointer]:
+                    - img [ref=e2063]
+                  - button "Reset axes" [ref=e2065] [cursor=pointer]:
+                    - img [ref=e2066]
+                - button "Fullscreen" [ref=e2069] [cursor=pointer]:
+                  - img [ref=e2070]
+              - img
+          - generic [ref=e2073]:
+            - heading "All do() Interventions" [level=3] [ref=e2078]:
+              - text: All do() Interventions
+              - generic [ref=e2079]:
+                - link "Link to heading":
+                  - /url: "#all-do-interventions"
+                  - img
+            - generic [ref=e2084]:
+              - button "Show/hide columns" [ref=e2088] [cursor=pointer]:
+                - img [ref=e2089]
+              - button "Download as CSV" [ref=e2094] [cursor=pointer]:
+                - img [ref=e2095]
+              - button "Search" [ref=e2100] [cursor=pointer]:
+                - img [ref=e2101]
+              - button "Fullscreen" [ref=e2106] [cursor=pointer]:
+                - img [ref=e2107]
+        - separator [ref=e2122]
+        - heading "🎲 Monte-Carlo Surgical Path Search" [level=3] [ref=e2126]:
+          - text: 🎲 Monte-Carlo Surgical Path Search
+          - generic [ref=e2127]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - button "▶ Run Search" [ref=e2130] [cursor=pointer]:
+          - paragraph [ref=e2134]: ▶ Run Search
+        - separator [ref=e2139]
+        - heading "🔁 Counterfactual Explorer" [level=3] [ref=e2144]:
+          - text: 🔁 Counterfactual Explorer
+          - generic [ref=e2145]:
+            - link "Link to heading":
+              - /url: "#counterfactual-explorer"
+              - img
+        - paragraph [ref=e2150]: "Ask: 'What would recovery have been if we had done X instead of Y?'"
+        - generic [ref=e2152]:
+          - generic [ref=e2156]:
+            - paragraph [ref=e2160]: Factual action (what happened)
+            - generic [ref=e2162]:
+              - generic [ref=e2163]:
+                - generic [ref=e2164]: (no surgery)
+                - combobox "Selected (no surgery). Factual action (what happened)" [ref=e2166]
+              - img "open" [ref=e2168]
+          - generic [ref=e2173]:
+            - paragraph [ref=e2177]: Counterfactual action (what if...)
+            - generic [ref=e2179]:
+              - generic [ref=e2180]:
+                - generic [ref=e2181]: remove_tumor_partial
+                - combobox "Selected remove_tumor_partial. Counterfactual action (what if...)" [ref=e2183]
+              - img "open" [ref=e2185]
+          - button "Run Counterfactual" [ref=e2191] [cursor=pointer]:
+            - paragraph [ref=e2195]: Run Counterfactual
+        - separator [ref=e2200]
+        - heading "🏥 Intraoperative Physiology Monitor (SNN)" [level=3] [ref=e2205]:
+          - text: 🏥 Intraoperative Physiology Monitor (SNN)
+          - generic [ref=e2206]:
+            - link "Link to heading":
+              - /url: "#intraoperative-physiology-monitor-snn"
+              - img
+        - generic [ref=e2208]:
+          - generic [ref=e2212]:
+            - paragraph [ref=e2216]: Simulation Duration (ms)
+            - generic [ref=e2217]:
+              - spinbutton "Simulation Duration (ms)" [ref=e2220]: "5000"
+              - generic [ref=e2221]:
+                - button [ref=e2222] [cursor=pointer]:
+                  - img [ref=e2223]
+                - button [ref=e2225] [cursor=pointer]:
+                  - img [ref=e2226]
+          - generic [ref=e2231]:
+            - paragraph [ref=e2235]: Time Step (ms)
+            - generic [ref=e2236]:
+              - spinbutton "Time Step (ms)" [ref=e2239]: "500"
+              - generic [ref=e2240]:
+                - button [ref=e2241] [cursor=pointer]:
+                  - img [ref=e2242]
+                - button [ref=e2244] [cursor=pointer]:
+                  - img [ref=e2245]
+          - generic [ref=e2250]:
+            - paragraph [ref=e2254]: Tumor Removal at (ms)
+            - generic [ref=e2255]:
+              - spinbutton "Tumor Removal at (ms)" [ref=e2258]: "2500"
+              - generic [ref=e2259]:
+                - button [ref=e2260] [cursor=pointer]:
+                  - img [ref=e2261]
+                - button [ref=e2263] [cursor=pointer]:
+                  - img [ref=e2264]
+        - button "▶ Run Surgery Simulation" [ref=e2268] [cursor=pointer]:
+          - paragraph [ref=e2272]: ▶ Run Surgery Simulation
+        - separator [ref=e2277]
+        - heading "🔬 Anatomical Knowledge Graph Explorer" [level=3] [ref=e2282]:
+          - text: 🔬 Anatomical Knowledge Graph Explorer
+          - generic [ref=e2283]:
+            - link "Link to heading":
+              - /url: "#anatomical-knowledge-graph-explorer"
+              - img
+        - generic [ref=e2285]:
+          - tablist [ref=e2287]:
+            - tab "Blood Supply Chain" [selected] [ref=e2288] [cursor=pointer]:
+              - paragraph [ref=e2290]: Blood Supply Chain
+            - tab "Compression Chain" [ref=e2291] [cursor=pointer]:
+              - paragraph [ref=e2293]: Compression Chain
+            - tab "Surgical Risks" [ref=e2294] [cursor=pointer]:
+              - paragraph [ref=e2296]: Surgical Risks
+          - tabpanel "Blood Supply Chain" [ref=e2299]:
+            - generic [ref=e2300]:
+              - paragraph [ref=e2305]: Query blood supply relationships for anatomical structures.
+              - generic [ref=e2307]:
+                - paragraph [ref=e2311]: Select structure
+                - generic [ref=e2313]:
+                  - generic [ref=e2314]:
+                    - generic [ref=e2315]: white_matter
+                    - combobox "Selected white_matter. Select structure" [ref=e2317]
+                  - img "open" [ref=e2319]
+              - button "Query Blood Supply" [ref=e2323] [cursor=pointer]:
+                - paragraph [ref=e2327]: Query Blood Supply
+        - separator [ref=e2332]
+        - heading "🧊 3D Brain Mesh Viewer" [level=3] [ref=e2337]:
+          - text: 🧊 3D Brain Mesh Viewer
+          - generic [ref=e2338]:
+            - link "Link to heading":
+              - /url: "#3-d-brain-mesh-viewer"
+              - img
+        - status [ref=e2341]:
+          - paragraph [ref=e2345]: No mesh files found. Run the pipeline first to generate 3D brain meshes.
+        - code [ref=e2350]: python scripts/run_pipeline.py --patient-id demo --tumor-size 0.3
+        - separator [ref=e2355]
+        - paragraph [ref=e2360]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

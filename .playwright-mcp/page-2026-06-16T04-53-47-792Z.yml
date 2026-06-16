@@ -1,0 +1,316 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e1892]:
+        - paragraph [ref=e1896]: Navigation
+        - radiogroup "Navigation" [ref=e1897] [cursor=pointer]:
+          - generic [ref=e1898]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e1903]: 🏠 Surgical Planner
+          - generic [ref=e1904]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e1909]: 👥 Patient Management
+          - generic [ref=e1910]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e1915]: 📊 Simulation Monitor
+          - generic [ref=e1916]:
+            - radio "📈 Comparative Analysis" [checked]
+            - paragraph [ref=e1921]: 📈 Comparative Analysis
+          - generic [ref=e1922]:
+            - radio "📤 Export & Reports"
+            - paragraph [ref=e1927]: 📤 Export & Reports
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "📈 Comparative Analysis" [level=1] [ref=e2361]:
+          - text: 📈 Comparative Analysis
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Compare different surgical approaches side-by-side
+        - heading "🔬 SCM Parameter Impact Analysis" [level=3] [ref=e2365]:
+          - text: 🔬 SCM Parameter Impact Analysis
+          - generic [ref=e1942]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e1944]:
+          - generic [ref=e1946]:
+            - generic [ref=e2368]:
+              - paragraph [ref=e2372]: Base Tumor Size
+              - generic [ref=e2373]:
+                - slider "Base Tumor Size" [ref=e2377]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.30"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2381]:
+              - paragraph [ref=e2385]: Compare Tumor Size
+              - generic [ref=e2386]:
+                - slider "Compare Tumor Size" [ref=e2390]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.60"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+          - generic [ref=e1964]:
+            - generic [ref=e2394]:
+              - paragraph [ref=e2398]: Base ICP
+              - generic [ref=e2399]:
+                - slider "Base ICP" [ref=e2403]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.20"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2407]:
+              - paragraph [ref=e2411]: Compare ICP
+              - generic [ref=e2412]:
+                - slider "Compare ICP" [ref=e2416]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.50"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+        - button "Compare SCM States" [ref=e2420] [cursor=pointer]:
+          - paragraph [ref=e2424]: Compare SCM States
+        - separator [ref=e2668]
+        - heading "⚡ Intervention Effectiveness Comparison" [level=3] [ref=e2669]:
+          - text: ⚡ Intervention Effectiveness Comparison
+          - generic [ref=e2127]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - button "Compare All Interventions" [active] [ref=e2649] [cursor=pointer]:
+          - paragraph [ref=e2653]: Compare All Interventions
+        - generic [ref=e2675]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Reduce Edema
+                  - generic:
+                    - generic: Drain Csf
+                  - generic:
+                    - generic: Biopsy Only
+                  - generic:
+                    - generic: Ablate Tissue
+                  - generic:
+                    - generic: Remove Tumor Partial
+                  - generic:
+                    - generic: Radiosurgery
+                  - generic:
+                    - generic: Debulk Tumor
+                  - generic:
+                    - generic: Remove Tumor Full
+                  - generic:
+                    - generic: Decompress Icp
+                  - generic:
+                    - generic: Reroute Blood Flow
+                  - generic:
+                    - generic: Clamp Artery
+                - generic:
+                  - generic:
+                    - generic: −0.2
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "0.2"
+                  - generic:
+                    - generic: "0.4"
+          - img:
+            - generic:
+              - generic [ref=e2692]:
+                - generic [ref=e2694]: Recovery Gain
+                - generic [ref=e2701]: Risk Increase
+              - generic:
+                - generic:
+                  - generic: "Intervention Comparison: Recovery Gain vs Risk"
+          - toolbar [ref=e2707]:
+            - button "Download plot as a PNG" [ref=e2709] [cursor=pointer]:
+              - img [ref=e2710]
+            - generic [ref=e2712]:
+              - button "Zoom" [ref=e2713] [cursor=pointer]:
+                - img [ref=e2714]
+              - button "Pan" [ref=e2716] [cursor=pointer]:
+                - img [ref=e2717]
+            - generic [ref=e2719]:
+              - button "Zoom in" [ref=e2720] [cursor=pointer]:
+                - img [ref=e2721]
+              - button "Zoom out" [ref=e2723] [cursor=pointer]:
+                - img [ref=e2724]
+              - button "Autoscale" [ref=e2726] [cursor=pointer]:
+                - img [ref=e2727]
+              - button "Reset axes" [ref=e2729] [cursor=pointer]:
+                - img [ref=e2730]
+            - button "Fullscreen" [ref=e2733] [cursor=pointer]:
+              - img [ref=e2734]
+          - img
+        - generic [ref=e2741]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: −0.7
+                  - generic:
+                    - generic: −0.6
+                  - generic:
+                    - generic: −0.5
+                  - generic:
+                    - generic: −0.4
+                  - generic:
+                    - generic: −0.3
+                  - generic:
+                    - generic: −0.2
+                  - generic:
+                    - generic: −0.1
+                - generic:
+                  - generic:
+                    - generic: Reduce Edema
+                  - generic:
+                    - generic: Drain Csf
+                  - generic:
+                    - generic: Biopsy Only
+                  - generic:
+                    - generic: Ablate Tissue
+                  - generic:
+                    - generic: Remove Tumor Partial
+                  - generic:
+                    - generic: Radiosurgery
+                  - generic:
+                    - generic: Debulk Tumor
+                  - generic:
+                    - generic: Remove Tumor Full
+                  - generic:
+                    - generic: Decompress Icp
+                  - generic:
+                    - generic: Reroute Blood Flow
+                  - generic:
+                    - generic: Clamp Artery
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Net Utility Ranking
+              - generic:
+                - generic: Net Utility
+          - toolbar [ref=e2755]:
+            - button "Download plot as a PNG" [ref=e2757] [cursor=pointer]:
+              - img [ref=e2758]
+            - generic [ref=e2760]:
+              - button "Zoom" [ref=e2761] [cursor=pointer]:
+                - img [ref=e2762]
+              - button "Pan" [ref=e2764] [cursor=pointer]:
+                - img [ref=e2765]
+            - generic [ref=e2767]:
+              - button "Zoom in" [ref=e2768] [cursor=pointer]:
+                - img [ref=e2769]
+              - button "Zoom out" [ref=e2771] [cursor=pointer]:
+                - img [ref=e2772]
+              - button "Autoscale" [ref=e2774] [cursor=pointer]:
+                - img [ref=e2775]
+              - button "Reset axes" [ref=e2777] [cursor=pointer]:
+                - img [ref=e2778]
+            - button "Fullscreen" [ref=e2781] [cursor=pointer]:
+              - img [ref=e2782]
+          - img
+        - separator [ref=e2788]
+        - paragraph [ref=e2789]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

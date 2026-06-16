@@ -1,0 +1,74 @@
+# configs/config.yaml
+# Main Hydra config for the Brain Tumor Surgical Planner pipeline.
+
+defaults:
+  - pipeline: default
+  - scm: default
+  - gnn: default
+  - _self_
+
+project:
+  name: brain-surgical-planner
+  version: "0.1.0"
+  log_level: INFO
+
+patient:
+  id: PATIENT_001
+  output_dir: outputs/${patient.id}
+
+pipeline:
+  n_simulations: 200
+  top_k_plans: 5
+  export_meshes: true
+  export_graph: true
+  device: auto   # auto | cpu | cuda
+
+scm:
+  tumor_size: 0.3
+  edema_volume: 0.2
+  intracranial_pressure: 0.2
+  blood_flow: 0.7
+  inflammatory_response: 0.3
+  mass_effect: 0.25
+
+gnn:
+  model_path: null
+  in_channels: 14
+  hidden_channels: 128
+  num_layers: 4
+  heads: 4
+  dropout: 0.15
+
+segmentation:
+  model_path: null
+  model_type: swinunetr   # swinunetr | segresnet
+  spatial_size: [128, 128, 128]
+  target_spacing: [1.0, 1.0, 1.0]
+  roi_size: [128, 128, 128]
+  overlap: 0.5
+  num_classes: 4
+
+reconstruction:
+  smooth_sigma: 1.0
+  marching_cubes_level: 0.5
+  min_voxels: 50
+
+api:
+  host: 0.0.0.0
+  port: 8000
+  reload: false
+  workers: 1
+
+storage:
+  postgres_url: postgresql://localhost:5432/surgical_planner
+  qdrant_url: http://localhost:6333
+  neo4j_url: bolt://localhost:7687
+  neo4j_user: neo4j
+  neo4j_password: surgical_planner
+
+hydra:
+  run:
+    dir: outputs/hydra/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: outputs/hydra/sweep
+    subdir: ${hydra.job.num}

@@ -1,0 +1,190 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e1892]:
+        - paragraph [ref=e1896]: Navigation
+        - radiogroup "Navigation" [ref=e1897] [cursor=pointer]:
+          - generic [ref=e1898]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e1903]: 🏠 Surgical Planner
+          - generic [ref=e1904]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e1909]: 👥 Patient Management
+          - generic [ref=e1910]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e1915]: 📊 Simulation Monitor
+          - generic [ref=e1916]:
+            - radio "📈 Comparative Analysis"
+            - paragraph [ref=e1921]: 📈 Comparative Analysis
+          - generic [ref=e1922]:
+            - radio "📤 Export & Reports" [checked]
+            - paragraph [ref=e1927]: 📤 Export & Reports
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - generic [ref=e2917]:
+            - img "Running..." [ref=e2918]:
+              - img [ref=e2919]
+            - button "Stop" [ref=e2923] [cursor=pointer]
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "📤 Export & Reports" [level=1] [ref=e2790]:
+          - text: 📤 Export & Reports
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Generate and download surgical reports and plan data
+        - heading "📋 Surgical Report Generator" [level=3] [ref=e2791]:
+          - text: 📋 Surgical Report Generator
+          - generic [ref=e1942]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e1944]:
+          - generic [ref=e1946]:
+            - generic [ref=e2793]:
+              - paragraph [ref=e2797]: Patient ID
+              - textbox "Patient ID" [ref=e2800]:
+                - /placeholder: ""
+                - text: P001
+            - generic [ref=e2802]:
+              - paragraph [ref=e2806]: Report Type
+              - generic [ref=e2808]:
+                - generic [ref=e2809]:
+                  - generic [ref=e2810]: Full Surgical Plan
+                  - combobox "Selected Full Surgical Plan. Report Type" [ref=e2812]
+                - img "open" [ref=e2814]
+          - generic [ref=e1964]:
+            - generic [ref=e2818] [cursor=pointer]:
+              - checkbox "Include Charts" [checked]
+              - paragraph [ref=e2823]: Include Charts
+            - generic [ref=e2826] [cursor=pointer]:
+              - checkbox "Include Raw Data"
+              - paragraph [ref=e2831]: Include Raw Data
+        - button "Generate Report" [active] [ref=e2834] [cursor=pointer]:
+          - paragraph [ref=e2838]: Generate Report
+        - paragraph [ref=e2931]: Generating report...
+        - separator [ref=e2668]
+        - heading "📊 Export Plan Data (JSON)" [level=3] [ref=e2839]:
+          - text: 📊 Export Plan Data (JSON)
+          - generic [ref=e2127]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - generic [ref=e2841]:
+          - paragraph [ref=e2845]: Export Format
+          - generic [ref=e2847]:
+            - generic [ref=e2848]:
+              - generic [ref=e2849]: JSON
+              - combobox "Selected JSON. Export Format" [ref=e2851]
+            - img "open" [ref=e2853]
+        - generic [ref=e2856]:
+          - paragraph [ref=e2860]: Export Scope
+          - generic [ref=e2862]:
+            - generic [ref=e2863]:
+              - generic [ref=e2864]: All Plans
+              - combobox "Selected All Plans. Export Scope" [ref=e2866]
+            - img "open" [ref=e2868]
+        - button "Prepare Export" [ref=e2872] [cursor=pointer]:
+          - paragraph [ref=e2876]: Prepare Export
+        - separator [ref=e2788]
+        - heading "🏥 Simulation Data Export" [level=3] [ref=e2880]:
+          - text: 🏥 Simulation Data Export
+          - generic [ref=e2881]:
+            - link "Link to heading":
+              - /url: "#simulation-data-export"
+              - img
+        - generic [ref=e2883]:
+          - paragraph [ref=e2887]: Duration (ms)
+          - generic [ref=e2888]:
+            - spinbutton "Duration (ms)" [ref=e2891]: "5000"
+            - generic [ref=e2892]:
+              - button [ref=e2893] [cursor=pointer]:
+                - img [ref=e2894]
+              - button [ref=e2896] [cursor=pointer]:
+                - img [ref=e2897]
+        - button "Run & Export Simulation" [ref=e2901] [cursor=pointer]:
+          - paragraph [ref=e2905]: Run & Export Simulation
+        - separator [ref=e2910]
+        - paragraph [ref=e2915]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

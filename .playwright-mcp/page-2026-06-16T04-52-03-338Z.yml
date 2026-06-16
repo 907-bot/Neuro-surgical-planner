@@ -1,0 +1,298 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e13]:
+        - paragraph [ref=e17]: Navigation
+        - radiogroup "Navigation" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e24]: 🏠 Surgical Planner
+          - generic [ref=e25]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e30]: 👥 Patient Management
+          - generic [ref=e31]:
+            - radio "📊 Simulation Monitor" [checked]
+            - paragraph [ref=e36]: 📊 Simulation Monitor
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "📊 Simulation Monitor" [level=1] [ref=e1653]:
+          - text: 📊 Simulation Monitor
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Run and monitor surgery simulations in real-time
+        - generic [ref=e1654]:
+          - generic [ref=e1658]:
+            - paragraph [ref=e1662]: Duration (ms)
+            - generic [ref=e1663]:
+              - spinbutton "Duration (ms)" [ref=e1666]: "10000"
+              - generic [ref=e1667]:
+                - button [ref=e1668] [cursor=pointer]:
+                  - img [ref=e1669]
+                - button [ref=e1671] [cursor=pointer]:
+                  - img [ref=e1672]
+          - generic [ref=e1677]:
+            - paragraph [ref=e1681]: Time Step (ms)
+            - generic [ref=e1682]:
+              - spinbutton "Time Step (ms)" [ref=e1685]: "500"
+              - generic [ref=e1686]:
+                - button [ref=e1687] [cursor=pointer]:
+                  - img [ref=e1688]
+                - button [ref=e1690] [cursor=pointer]:
+                  - img [ref=e1691]
+          - generic [ref=e1696]:
+            - paragraph [ref=e1700]: Tumor Removal (ms)
+            - generic [ref=e1701]:
+              - spinbutton "Tumor Removal (ms)" [ref=e1704]: "5000"
+              - generic [ref=e1705]:
+                - button [ref=e1706] [cursor=pointer]:
+                  - img [ref=e1707]
+                - button [ref=e1709] [cursor=pointer]:
+                  - img [ref=e1710]
+        - button "▶ Run Simulation" [active] [ref=e1714] [cursor=pointer]:
+          - paragraph [ref=e1718]: ▶ Run Simulation
+        - generic [ref=e1734]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "2000"
+                  - generic:
+                    - generic: "4000"
+                  - generic:
+                    - generic: "6000"
+                  - generic:
+                    - generic: "8000"
+                - generic:
+                  - generic:
+                    - generic: "80"
+                  - generic:
+                    - generic: "100"
+                  - generic:
+                    - generic: "120"
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "2000"
+                  - generic:
+                    - generic: "4000"
+                  - generic:
+                    - generic: "6000"
+                  - generic:
+                    - generic: "8000"
+                - generic:
+                  - generic:
+                    - generic: "60"
+                  - generic:
+                    - generic: "70"
+                  - generic:
+                    - generic: "80"
+                  - generic:
+                    - generic: "90"
+                  - generic:
+                    - generic: "100"
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "2000"
+                  - generic:
+                    - generic: "4000"
+                  - generic:
+                    - generic: "6000"
+                  - generic:
+                    - generic: "8000"
+                - generic:
+                  - generic:
+                    - generic: "13"
+                  - generic:
+                    - generic: "14"
+                  - generic:
+                    - generic: "15"
+                  - generic:
+                    - generic: "16"
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "2000"
+                  - generic:
+                    - generic: "4000"
+                  - generic:
+                    - generic: "6000"
+                  - generic:
+                    - generic: "8000"
+                - generic:
+                  - generic:
+                    - generic: "40"
+                  - generic:
+                    - generic: "45"
+                  - generic:
+                    - generic: "50"
+          - img:
+            - generic:
+              - generic [ref=e1787]:
+                - generic [ref=e1789]: Systolic
+                - generic [ref=e1792]: Diastolic
+                - generic [ref=e1795]: HR
+                - generic [ref=e1798]: SpO2
+                - generic [ref=e1801]: ICP
+                - generic [ref=e1804]: CBF
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Blood Pressure
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Heart Rate & SpO2
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: ICP
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: CBF
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Tumor Removed
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Tumor Removed
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Tumor Removed
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Tumor Removed
+          - toolbar [ref=e1806]:
+            - button "Download plot as a PNG" [ref=e1808] [cursor=pointer]:
+              - img [ref=e1809]
+            - generic [ref=e1811]:
+              - button "Zoom" [ref=e1812] [cursor=pointer]:
+                - img [ref=e1813]
+              - button "Pan" [ref=e1815] [cursor=pointer]:
+                - img [ref=e1816]
+            - generic [ref=e1818]:
+              - button "Zoom in" [ref=e1819] [cursor=pointer]:
+                - img [ref=e1820]
+              - button "Zoom out" [ref=e1822] [cursor=pointer]:
+                - img [ref=e1823]
+              - button "Autoscale" [ref=e1825] [cursor=pointer]:
+                - img [ref=e1826]
+              - button "Reset axes" [ref=e1828] [cursor=pointer]:
+                - img [ref=e1829]
+            - button "Fullscreen" [ref=e1832] [cursor=pointer]:
+              - img [ref=e1833]
+          - img
+        - generic [ref=e1836]:
+          - generic [ref=e1841]:
+            - paragraph [ref=e1844]: Final Outcome
+            - paragraph [ref=e1847]: 0.00%
+          - generic [ref=e1852]:
+            - paragraph [ref=e1855]: Total Alerts
+            - paragraph [ref=e1858]: "0"
+          - generic [ref=e1863]:
+            - paragraph [ref=e1866]: Critical
+            - paragraph [ref=e1869]: "0"
+          - generic [ref=e1874]:
+            - paragraph [ref=e1877]: Warnings
+            - paragraph [ref=e1880]: "0"
+        - separator [ref=e1885]
+        - paragraph [ref=e1890]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

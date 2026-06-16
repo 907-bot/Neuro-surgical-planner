@@ -1,0 +1,182 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e1892]:
+        - paragraph [ref=e1896]: Navigation
+        - radiogroup "Navigation" [ref=e1897] [cursor=pointer]:
+          - generic [ref=e1898]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e1903]: 🏠 Surgical Planner
+          - generic [ref=e1904]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e1909]: 👥 Patient Management
+          - generic [ref=e1910]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e1915]: 📊 Simulation Monitor
+          - generic [ref=e1916]:
+            - radio "📈 Comparative Analysis" [checked] [active]
+            - paragraph [ref=e1921]: 📈 Comparative Analysis
+          - generic [ref=e1922]:
+            - radio "📤 Export & Reports"
+            - paragraph [ref=e1927]: 📤 Export & Reports
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "📈 Comparative Analysis" [level=1] [ref=e2361]:
+          - text: 📈 Comparative Analysis
+          - link "Link to heading" [ref=e2362] [cursor=pointer]:
+            - /url: "#causal-brain-tumor-surgical-planner"
+            - img [ref=e2363]
+        - paragraph [ref=e159]: Compare different surgical approaches side-by-side
+        - heading "🔬 SCM Parameter Impact Analysis" [level=3] [ref=e2365]:
+          - text: 🔬 SCM Parameter Impact Analysis
+          - generic [ref=e1942]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e1944]:
+          - generic [ref=e1946]:
+            - generic [ref=e2368]:
+              - paragraph [ref=e2372]: Base Tumor Size
+              - generic [ref=e2373]:
+                - slider "Base Tumor Size" [ref=e2377]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.30"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2381]:
+              - paragraph [ref=e2385]: Compare Tumor Size
+              - generic [ref=e2386]:
+                - slider "Compare Tumor Size" [ref=e2390]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.60"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+          - generic [ref=e1964]:
+            - generic [ref=e2394]:
+              - paragraph [ref=e2398]: Base ICP
+              - generic [ref=e2399]:
+                - slider "Base ICP" [ref=e2403]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.20"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2407]:
+              - paragraph [ref=e2411]: Compare ICP
+              - generic [ref=e2412]:
+                - slider "Compare ICP" [ref=e2416]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.50"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+        - button "Compare SCM States" [ref=e2420] [cursor=pointer]:
+          - paragraph [ref=e2424]: Compare SCM States
+        - separator [ref=e2122]
+        - heading "⚡ Intervention Effectiveness Comparison" [level=3] [ref=e2425]:
+          - text: ⚡ Intervention Effectiveness Comparison
+          - generic [ref=e2127]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - button "Compare All Interventions" [ref=e2428] [cursor=pointer]:
+          - paragraph [ref=e2432]: Compare All Interventions
+        - separator [ref=e2139]
+        - paragraph [ref=e2436]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

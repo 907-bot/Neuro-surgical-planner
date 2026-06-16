@@ -1,0 +1,310 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e1892]:
+        - paragraph [ref=e1896]: Navigation
+        - radiogroup "Navigation" [ref=e1897] [cursor=pointer]:
+          - generic [ref=e1898]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e1903]: 🏠 Surgical Planner
+          - generic [ref=e1904]:
+            - radio "👥 Patient Management"
+            - paragraph [ref=e1909]: 👥 Patient Management
+          - generic [ref=e1910]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e1915]: 📊 Simulation Monitor
+          - generic [ref=e1916]:
+            - radio "📈 Comparative Analysis" [checked]
+            - paragraph [ref=e1921]: 📈 Comparative Analysis
+          - generic [ref=e1922]:
+            - radio "📤 Export & Reports"
+            - paragraph [ref=e1927]: 📤 Export & Reports
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "📈 Comparative Analysis" [level=1] [ref=e2361]:
+          - text: 📈 Comparative Analysis
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Compare different surgical approaches side-by-side
+        - heading "🔬 SCM Parameter Impact Analysis" [level=3] [ref=e2365]:
+          - text: 🔬 SCM Parameter Impact Analysis
+          - generic [ref=e1942]:
+            - link "Link to heading":
+              - /url: "#baseline-physiological-state"
+              - img
+        - generic [ref=e1944]:
+          - generic [ref=e1946]:
+            - generic [ref=e2368]:
+              - paragraph [ref=e2372]: Base Tumor Size
+              - generic [ref=e2373]:
+                - slider "Base Tumor Size" [ref=e2377]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.30"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2381]:
+              - paragraph [ref=e2385]: Compare Tumor Size
+              - generic [ref=e2386]:
+                - slider "Compare Tumor Size" [ref=e2390]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.60"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+          - generic [ref=e1964]:
+            - generic [ref=e2394]:
+              - paragraph [ref=e2398]: Base ICP
+              - generic [ref=e2399]:
+                - slider "Base ICP" [ref=e2403]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.20"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+            - generic [ref=e2407]:
+              - paragraph [ref=e2411]: Compare ICP
+              - generic [ref=e2412]:
+                - slider "Compare ICP" [ref=e2416]:
+                  - generic:
+                    - generic:
+                      - paragraph: "0.50"
+                - generic:
+                  - generic:
+                    - paragraph: "0.00"
+                  - generic:
+                    - paragraph: "1.00"
+        - button "Compare SCM States" [active] [ref=e2420] [cursor=pointer]:
+          - paragraph [ref=e2424]: Compare SCM States
+        - generic [ref=e2442]:
+          - img:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: tumor_size
+                  - generic:
+                    - generic: blood_flow
+                  - generic:
+                    - generic: oxygen_saturation
+                  - generic:
+                    - generic: intracranial_pressure
+                  - generic:
+                    - generic: metabolic_rate
+                  - generic:
+                    - generic: edema_volume
+                  - generic:
+                    - generic: vascular_compression
+                  - generic:
+                    - generic: neural_function
+                  - generic:
+                    - generic: mass_effect
+                  - generic:
+                    - generic: inflammatory_response
+                  - generic:
+                    - generic: recovery_score
+                  - generic:
+                    - generic: surgical_risk
+                - generic:
+                  - generic:
+                    - generic: "0"
+                  - generic:
+                    - generic: "0.2"
+                  - generic:
+                    - generic: "0.4"
+                  - generic:
+                    - generic: "0.6"
+                  - generic:
+                    - generic: "0.8"
+          - img:
+            - generic:
+              - generic [ref=e2459]:
+                - generic [ref=e2461]: Base
+                - generic [ref=e2468]: Compare
+              - generic:
+                - generic:
+                  - generic: SCM State Comparison
+          - toolbar [ref=e2474]:
+            - button "Download plot as a PNG" [ref=e2476] [cursor=pointer]:
+              - img [ref=e2477]
+            - generic [ref=e2479]:
+              - button "Zoom" [ref=e2480] [cursor=pointer]:
+                - img [ref=e2481]
+              - button "Pan" [ref=e2483] [cursor=pointer]:
+                - img [ref=e2484]
+            - generic [ref=e2486]:
+              - button "Zoom in" [ref=e2487] [cursor=pointer]:
+                - img [ref=e2488]
+              - button "Zoom out" [ref=e2490] [cursor=pointer]:
+                - img [ref=e2491]
+              - button "Autoscale" [ref=e2493] [cursor=pointer]:
+                - img [ref=e2494]
+              - button "Reset axes" [ref=e2496] [cursor=pointer]:
+                - img [ref=e2497]
+            - button "Fullscreen" [ref=e2500] [cursor=pointer]:
+              - img [ref=e2501]
+          - img
+        - heading "📊 State Deltas" [level=3] [ref=e2503]:
+          - text: 📊 State Deltas
+          - generic [ref=e2127]:
+            - link "Link to heading":
+              - /url: "#monte-carlo-surgical-path-search"
+              - img
+        - generic [ref=e2505]:
+          - generic [ref=e2507]:
+            - generic [ref=e2510]:
+              - paragraph [ref=e2513]: Tumor Size
+              - paragraph [ref=e2516]: 60.00%
+              - generic [ref=e2518]:
+                - img [ref=e2519]
+                - paragraph [ref=e2523]: +30.00%
+            - generic [ref=e2526]:
+              - paragraph [ref=e2529]: Metabolic Rate
+              - paragraph [ref=e2532]: 92.00%
+              - generic [ref=e2534]:
+                - img [ref=e2535]
+                - paragraph [ref=e2539]: +11.30%
+          - generic [ref=e2541]:
+            - generic [ref=e2544]:
+              - paragraph [ref=e2547]: Blood Flow
+              - paragraph [ref=e2550]: 71.44%
+              - generic [ref=e2552]:
+                - img [ref=e2553]
+                - paragraph [ref=e2557]: "-13.20%"
+            - generic [ref=e2560]:
+              - paragraph [ref=e2563]: Edema Volume
+              - paragraph [ref=e2566]: 39.00%
+              - generic [ref=e2568]:
+                - img [ref=e2569]
+                - paragraph [ref=e2573]: +15.00%
+          - generic [ref=e2575]:
+            - generic [ref=e2578]:
+              - paragraph [ref=e2581]: Oxygen Saturation
+              - paragraph [ref=e2584]: 88.58%
+              - generic [ref=e2586]:
+                - img [ref=e2587]
+                - paragraph [ref=e2591]: "-5.28%"
+            - generic [ref=e2594]:
+              - paragraph [ref=e2597]: Vascular Compression
+              - paragraph [ref=e2600]: 35.70%
+              - generic [ref=e2602]:
+                - img [ref=e2603]
+                - paragraph [ref=e2607]: +16.50%
+          - generic [ref=e2609]:
+            - generic [ref=e2612]:
+              - paragraph [ref=e2615]: Intracranial Pressure
+              - paragraph [ref=e2618]: 49.08%
+              - generic [ref=e2620]:
+                - img [ref=e2621]
+                - paragraph [ref=e2625]: +22.20%
+            - generic [ref=e2628]:
+              - paragraph [ref=e2631]: Neural Function
+              - paragraph [ref=e2634]: 72.42%
+              - generic [ref=e2636]:
+                - img [ref=e2637]
+                - paragraph [ref=e2641]: "-12.60%"
+        - separator [ref=e2139]
+        - heading "⚡ Intervention Effectiveness Comparison" [level=3] [ref=e2645]:
+          - text: ⚡ Intervention Effectiveness Comparison
+          - generic [ref=e2646]:
+            - link "Link to heading":
+              - /url: "#intervention-effectiveness-comparison"
+              - img
+        - button "Compare All Interventions" [ref=e2649] [cursor=pointer]:
+          - paragraph [ref=e2653]: Compare All Interventions
+        - separator [ref=e2658]
+        - paragraph [ref=e2663]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

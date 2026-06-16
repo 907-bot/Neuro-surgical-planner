@@ -1,0 +1,193 @@
+- generic:
+  - generic [ref=e2]:
+    - generic [ref=e11]:
+      - generic [ref=e13]:
+        - paragraph [ref=e17]: Navigation
+        - radiogroup "Navigation" [ref=e18] [cursor=pointer]:
+          - generic [ref=e19]:
+            - radio "🏠 Surgical Planner"
+            - paragraph [ref=e24]: 🏠 Surgical Planner
+          - generic [ref=e25]:
+            - radio "👥 Patient Management" [checked]
+            - paragraph [ref=e30]: 👥 Patient Management
+          - generic [ref=e31]:
+            - radio "📊 Simulation Monitor"
+            - paragraph [ref=e36]: 📊 Simulation Monitor
+      - heading "🧠 Surgical Planner" [level=1] [ref=e40]
+      - heading "Patient Parameters (SCM)" [level=2] [ref=e44]
+      - generic [ref=e47]:
+        - paragraph [ref=e51]: Tumor Size
+        - generic [ref=e52]:
+          - slider "Tumor Size" [ref=e56]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e60]:
+        - paragraph [ref=e64]: Edema Volume
+        - generic [ref=e65]:
+          - slider "Edema Volume" [ref=e69]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e73]:
+        - paragraph [ref=e77]: Intracranial Pressure
+        - generic [ref=e78]:
+          - slider "Intracranial Pressure" [ref=e82]:
+            - generic:
+              - generic:
+                - paragraph: "0.20"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e86]:
+        - paragraph [ref=e90]: Blood Flow
+        - generic [ref=e91]:
+          - slider "Blood Flow" [ref=e95]:
+            - generic:
+              - generic:
+                - paragraph: "0.70"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - generic [ref=e99]:
+        - paragraph [ref=e103]: Inflammatory Response
+        - generic [ref=e104]:
+          - slider "Inflammatory Response" [ref=e108]:
+            - generic:
+              - generic:
+                - paragraph: "0.30"
+          - generic:
+            - generic:
+              - paragraph: "0.00"
+            - generic:
+              - paragraph: "1.00"
+      - separator [ref=e114]
+      - generic [ref=e117]:
+        - paragraph [ref=e121]: Monte-Carlo Simulations
+        - generic [ref=e122]:
+          - slider "Monte-Carlo Simulations" [ref=e126]:
+            - generic:
+              - generic:
+                - paragraph: "100"
+          - generic:
+            - generic:
+              - paragraph: "50"
+            - generic:
+              - paragraph: "500"
+      - paragraph [ref=e132]: More simulations = more stable estimates but slower
+    - generic [ref=e3]:
+      - banner [ref=e135]:
+        - generic [ref=e138]:
+          - button "Deploy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]: Deploy
+          - button "Main menu" [ref=e144] [cursor=pointer]:
+            - img [ref=e145]
+      - generic [ref=e148]:
+        - heading "👥 Patient Management" [level=1] [ref=e1471]:
+          - text: 👥 Patient Management
+          - generic [ref=e154]:
+            - link "Link to heading":
+              - /url: "#causal-brain-tumor-surgical-planner"
+              - img
+        - paragraph [ref=e159]: Create, view, and manage patient records and surgical plans
+        - group [ref=e1474]:
+          - generic "keyboard_arrow_down ➕ Create New Patient" [active] [ref=e1504] [cursor=pointer]:
+            - generic [ref=e1476]:
+              - generic [ref=e1506]: keyboard_arrow_down
+              - paragraph [ref=e1481]: ➕ Create New Patient
+          - generic [ref=e1511]:
+            - generic [ref=e1513]:
+              - generic [ref=e1515]:
+                - generic [ref=e1517]:
+                  - paragraph [ref=e1521]: Patient ID
+                  - textbox "Patient ID" [ref=e1524]:
+                    - /placeholder: ""
+                    - text: P001
+                - generic [ref=e1526]:
+                  - paragraph [ref=e1530]: Patient Name
+                  - textbox "Patient Name" [ref=e1533]:
+                    - /placeholder: ""
+                    - text: John Doe
+                - generic [ref=e1535]:
+                  - paragraph [ref=e1539]: Date of Birth
+                  - textbox "Select a date." [ref=e1543]:
+                    - /placeholder: YYYY/MM/DD
+                    - text: 2026/06/16
+                  - paragraph: Press the down arrow key to interact with the calendar and select a date. Press the escape button to close the calendar.
+                  - paragraph: Selected date is 2026/06/16. Select the second date.
+              - generic [ref=e1545]:
+                - generic [ref=e1547]:
+                  - paragraph [ref=e1551]: Gender
+                  - generic [ref=e1553]:
+                    - generic [ref=e1554]:
+                      - generic [ref=e1555]: Male
+                      - combobox "Selected Male. Gender" [ref=e1557]
+                    - img "open" [ref=e1559]
+                - generic [ref=e1562]:
+                  - paragraph [ref=e1566]: Diagnosis
+                  - textbox "Diagnosis" [ref=e1569]:
+                    - /placeholder: ""
+                    - text: Glioblastoma
+                - generic [ref=e1571]:
+                  - paragraph [ref=e1575]: Tumor Type
+                  - generic [ref=e1577]:
+                    - generic [ref=e1578]:
+                      - generic [ref=e1579]: glioblastoma
+                      - combobox "Selected glioblastoma. Tumor Type" [ref=e1581]
+                    - img "open" [ref=e1583]
+                - generic [ref=e1586]:
+                  - paragraph [ref=e1590]: Tumor Location
+                  - generic [ref=e1592]:
+                    - generic [ref=e1593]:
+                      - generic [ref=e1594]: frontal_lobe
+                      - combobox "Selected frontal_lobe. Tumor Location" [ref=e1596]
+                    - img "open" [ref=e1598]
+                - generic [ref=e1602]:
+                  - paragraph [ref=e1606]: Tumor Size
+                  - generic [ref=e1607]:
+                    - slider "Tumor Size" [ref=e1611]:
+                      - generic:
+                        - generic:
+                          - paragraph: "0.35"
+                    - generic:
+                      - generic:
+                        - paragraph: "0.00"
+                      - generic:
+                        - paragraph: "1.00"
+                - generic [ref=e1614]:
+                  - paragraph [ref=e1618]: Grade
+                  - generic [ref=e1620]:
+                    - generic [ref=e1621]:
+                      - generic [ref=e1622]: I
+                      - combobox "Selected I. Grade" [ref=e1624]
+                    - img "open" [ref=e1626]
+            - button "Create Patient" [ref=e1631] [cursor=pointer]:
+              - paragraph [ref=e1635]: Create Patient
+        - heading "📋 Patient Records" [level=3] [ref=e1486]:
+          - text: 📋 Patient Records
+          - generic [ref=e1487]:
+            - link "Link to heading":
+              - /url: "#patient-records"
+              - img
+        - group [ref=e1489]:
+          - generic "keyboard_arrow_right 👤 John Doe (P001)" [ref=e1490] [cursor=pointer]:
+            - generic [ref=e1491]:
+              - generic [ref=e1493]: keyboard_arrow_right
+              - paragraph [ref=e1496]: 👤 John Doe (P001)
+        - separator [ref=e345]
+        - paragraph [ref=e1500]: ⚠ Research prototype — not for clinical use. All decisions must be made by qualified surgeons.
+  - img [ref=e585]

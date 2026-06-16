@@ -1,0 +1,9 @@
+[  215716ms] [WARNING] WebSocket onclose @ http://localhost:8502/static/js/index.dkY5s53S.js:183
+[  215744ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:8502/_stcore/health:0
+[  215744ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:8502/_stcore/host-config:0
+[  215847ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:8502/_stcore/health:0
+[  215848ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_RESET @ http://localhost:8502/_stcore/host-config:0
+[  216089ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ http://localhost:8502/_stcore/health:0
+[  216090ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ http://localhost:8502/_stcore/host-config:0
+[  216497ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8502/_stcore/health:0
+[  216497ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8502/_stcore/host-config:0
