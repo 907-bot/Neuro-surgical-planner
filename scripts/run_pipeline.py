@@ -3,6 +3,9 @@ scripts/run_pipeline.py
 CLI entry point for the Brain Tumor Surgical Planner pipeline.
 
 Usage:
+    # Full end-to-end demo (no MRI needed — uses trained GNN + synthetic data)
+    python scripts/run_pipeline.py --demo
+
     # Full pipeline on real MRI
     python scripts/run_pipeline.py --mri data/raw/patient_001 --patient-id P001
 
@@ -163,6 +166,42 @@ def run_full_pipeline(args):
     console.print(result.surgical_report)
 
 
+def run_demo(args):
+    """
+    End-to-end demo: loads SYNTH_0000 (or first synthetic patient),
+    runs GNN inference with trained weights, runs full causal pipeline,
+    and saves outputs/demo_report.txt + outputs/demo_plan.json.
+
+    This is the Forbes 30U30 demo — no MRI required.
+    """
+    from scripts.adapt_brats import run_benchmark_demo
+
+    data_dir  = getattr(args, "data_dir",  "data/processed/graphs")
+    model     = getattr(args, "model",     "models/gnn_checkpoint.pt")
+    out_dir   = args.output or "outputs"
+
+    console.print(Panel(
+        "[bold purple]🧠 Full End-to-End Demo[/bold purple]\n"
+        "Synthetic patient → GNN → SCM → Monte-Carlo → Surgical Plan",
+        title="Brain Tumor Surgical Planner",
+    ))
+
+    result = run_benchmark_demo(
+        data_dir=data_dir,
+        model_path=model,
+        output_dir=out_dir,
+    )
+
+    if result:
+        console.print(Panel(
+            f"[bold green]✓ Demo complete![/bold green]\n"
+            f"  Report → outputs/demo_report.txt\n"
+            f"  JSON   → outputs/demo_report.json\n",
+            title="Done",
+        ))
+    return result
+
+
 def run_mock(args):
     """Run with synthetic data — no MRI needed."""
     from src.pipeline import BrainSurgicalPlannerPipeline, PipelineConfig
@@ -188,13 +227,21 @@ def main():
     parser.add_argument("--mri", type=str, help="Path to MRI directory")
     parser.add_argument("--patient-id", type=str, default="PATIENT_001")
     parser.add_argument("--mock", action="store_true", help="Run with synthetic data")
+    parser.add_argument("--demo", action="store_true",
+                        help="End-to-end demo using trained GNN + synthetic patient (no MRI needed)")
     parser.add_argument("--causal-only", action="store_true", help="Skip imaging")
     parser.add_argument("--tumor-size", type=float, default=0.3, help="For causal-only mode")
     parser.add_argument("--n-simulations", type=int, default=200)
     parser.add_argument("--output", type=str, help="Output file/directory")
+    parser.add_argument("--model", type=str, default="models/gnn_checkpoint.pt",
+                        help="GNN checkpoint path (used by --demo)")
+    parser.add_argument("--data-dir", type=str, default="data/processed/graphs",
+                        help="Synthetic data directory (used by --demo)")
     args = parser.parse_args()
 
-    if args.causal_only:
+    if args.demo:
+        run_demo(args)
+    elif args.causal_only:
         run_causal_only(args)
     elif args.mock:
         run_mock(args)
@@ -202,7 +249,7 @@ def main():
         run_full_pipeline(args)
     else:
         # Default: causal-only demo
-        console.print("[yellow]No MRI specified — running causal demo[/yellow]")
+        console.print("[yellow]No mode specified — running causal demo. Use --demo for full end-to-end.[/yellow]")
         args.causal_only = True
         run_causal_only(args)
 

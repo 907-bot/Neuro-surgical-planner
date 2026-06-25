@@ -32,6 +32,7 @@ uvicorn>=0.29.0
 pydantic>=2.7.0
 streamlit>=1.35.0
 plotly>=5.21.0
+reportlab>=4.1.0
 
 # Data & Utilities
 numpy>=1.26.0

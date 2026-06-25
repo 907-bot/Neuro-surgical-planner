@@ -1,0 +1,7 @@
+gradio>=4.0.0
+plotly>=5.21.0
+numpy>=1.26.0
+networkx>=3.2.1
+scipy>=1.13.0
+loguru>=0.7.2
+dowhy>=0.11.1

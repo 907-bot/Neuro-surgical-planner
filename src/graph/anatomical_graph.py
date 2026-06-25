@@ -204,7 +204,7 @@ class AnatomicalGraphBuilder:
             label_id=structure.get("label_id", -1),
             features=features,
             feature_vector=features.to_vector(),
-            **{k: v for k, v in structure.items() if k not in ("centroid_mm", "centroid_voxel", "label_id")},
+            **{k: v for k, v in structure.items() if k not in ("centroid_mm", "centroid_voxel", "label_id", "feature_vector", "features", "name")},
         )
 
     def _add_anatomical_priors(self):

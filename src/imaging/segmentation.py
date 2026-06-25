@@ -115,7 +115,7 @@ class BrainTumorSegmenter:
         self.model.to(self.device)
         self.model.eval()
 
-        self.transforms = build_preprocessing_transforms()
+        self.transforms = build_preprocessing_transforms() if MONAI_AVAILABLE else None
 
     def _resolve_device(self, device: str) -> torch.device:
         if device == "auto":
@@ -273,7 +273,7 @@ class BrainTumorSegmenter:
 
         return {
             "mask": mask,
-            "probs": np.eye(4)[mask.flatten()].reshape(*shape, 4).transpose(3, 0, 1, 2),
+            "probs": np.eye(5)[mask.flatten()].reshape(*shape, 5).transpose(3, 0, 1, 2),
             "labels": {0: "background", 1: "necrotic_core", 2: "edema", 3: "enhancing_tumor", 4: "white_matter"},
             "structures": [
                 {"label_id": 1, "name": "necrotic_tumor_core", "voxel_count": 512,

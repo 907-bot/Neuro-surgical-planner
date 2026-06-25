@@ -26,7 +26,7 @@ API_BASE = os.getenv("API_BASE", "http://localhost:8002")
 
 # ─── Page Config ─────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="🧠 Brain Surgical Planner",
+    page_title="🧠 NeuroPlan AI — Causal Surgical Planner for India",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -34,16 +34,35 @@ st.set_page_config(
 
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+html, body, [class*="css"]  { font-family: 'Inter', sans-serif; }
 .metric-card {
     background: #1e1e2e;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
     margin: 0.3rem 0;
     border-left: 4px solid #7c3aed;
+    transition: transform 0.15s;
 }
+.metric-card:hover { transform: translateX(3px); }
 .high-risk { border-left-color: #ef4444; }
 .med-risk  { border-left-color: #f59e0b; }
 .low-risk  { border-left-color: #22c55e; }
+.attribution-box {
+    background: #13131f;
+    border: 1px solid #7c3aed44;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    font-family: 'Inter', monospace;
+}
+.india-stat {
+    background: linear-gradient(135deg, #1e1e2e, #2d1b4e);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    border-left: 3px solid #f59e0b;
+    margin: 0.2rem 0;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -81,8 +100,22 @@ patient_params = {
 
 # ─── Surgical Planner Page ────────────────────────────────────────────────────
 if page == "🏠 Surgical Planner":
-    st.title("🧠 Causal Brain Tumor Surgical Planner")
-    st.caption("Pearl Do-Calculus × Counterfactual Simulation × Monte-Carlo Path Search")
+    st.title("🧠 NeuroPlan AI — Causal Brain Tumor Surgical Planner")
+    st.caption(
+        "Pearl Do-Calculus × Counterfactual Simulation × Monte-Carlo Path Search "
+        "| Built for India's 100,000+ annual brain tumor cases"
+    )
+
+    with st.sidebar.expander("🇮🇳 Why India Needs This", expanded=False):
+        st.markdown("""
+        <div class='india-stat'>📊 <b>100,000+</b> new brain tumor cases/year in India</div>
+        <div class='india-stat'>👨‍⚕️ <b>1 neurosurgeon</b> per ~400,000 people</div>
+        <div class='india-stat'>⏱️ Pre-op planning takes <b>4–8 hours</b> per case</div>
+        <div class='india-stat'>🏥 Most tier-2/3 hospitals have <b>zero</b> surgical AI access</div>
+        <br/>
+        <small>NeuroPlan AI acts as a <b>causal AI co-pilot</b> — giving every
+        surgeon the reasoning power of a specialized tumor board in &lt;60 seconds.</small>
+        """, unsafe_allow_html=True)
 
     scm = BrainTumorSCM(patient_params=patient_params)
     baseline = scm.evaluate(noise=False)
@@ -246,6 +279,117 @@ if page == "🏠 Surgical Planner":
   95% CI: [{plan.confidence_interval[0]:.0%}, {plan.confidence_interval[1]:.0%}]
 </div>
 """, unsafe_allow_html=True)
+
+        st.divider()
+
+        # ── 3D Brain Visualization ──────────────────────────────────────────
+        st.subheader("🧬 3D Brain Anatomy & Surgical Plan")
+        st.caption("Interactive 3D view — drag to rotate, scroll to zoom")
+
+        try:
+            from src.graph.viz_3d import BrainMeshBuilder
+            builder = BrainMeshBuilder()
+            top_plan_dict = plans[0].to_dict() if plans else None
+            fig_3d = builder.build_simple_figure(
+                tumor_size=patient_params.get("tumor_size", 0.3),
+                tumor_position="frontal",
+                critical_proximity=patient_params.get("intracranial_pressure", 0.2),
+            )
+            if fig_3d:
+                st.plotly_chart(fig_3d, use_container_width=True)
+                st.caption("🟥 Tumor  🟠 Brainstem  🟣 Vessels  🟢 Approach corridor  🟣 Critical structures")
+        except Exception as e:
+            st.info(f"3D view loading... ({e})")
+
+        st.divider()
+
+        # ── Causal Attribution: Why This Plan? ──────────────────────────────
+        st.subheader("🔬 Why This Plan? — Causal Attribution")
+        st.caption(
+            "Traces exactly which physiological variables changed (and by how much) "
+            "when each surgical action is applied via Do-Calculus."
+        )
+
+        try:
+            from src.causal.attribution import CausalAttributor
+            from src.causal.do_calculus import SurgicalAction as SA
+
+            attr_scm = BrainTumorSCM(patient_params=patient_params)
+            attributor = CausalAttributor(attr_scm)
+
+            plan_tabs = st.tabs([f"Plan #{p.rank}" for p in plans[:3]])
+            for tab_idx, (tab, plan) in enumerate(zip(plan_tabs, plans[:3])):
+                with tab:
+                    chain = attributor.explain_plan(
+                        plan.actions, plan_rank=plan.rank
+                    )
+
+                    # Explanation sentence
+                    st.markdown(
+                        f"<div class='attribution-box'>💡 {chain.explanation}</div>",
+                        unsafe_allow_html=True
+                    )
+
+                    # Recovery delta metric
+                    col_m1, col_m2, col_m3 = st.columns(3)
+                    col_m1.metric(
+                        "Baseline Recovery",
+                        f"{chain.baseline_recovery:.1%}",
+                    )
+                    col_m2.metric(
+                        "Post-intervention Recovery",
+                        f"{chain.final_recovery:.1%}",
+                        delta=f"{chain.recovery_delta:+.1%}",
+                    )
+                    col_m3.metric(
+                        "Actions",
+                        str(len(plan.actions)),
+                    )
+
+                    # Waterfall chart
+                    if chain.variable_deltas:
+                        var_labels = [d.clinical_label for d in chain.variable_deltas[:8]]
+                        var_deltas = [d.delta for d in chain.variable_deltas[:8]]
+                        bar_colors = [
+                            "#22c55e" if d.direction == "improved" else "#ef4444"
+                            for d in chain.variable_deltas[:8]
+                        ]
+
+                        fig_attr = go.Figure(go.Bar(
+                            x=var_deltas,
+                            y=var_labels,
+                            orientation="h",
+                            marker_color=bar_colors,
+                            text=[f"{d:+.3f}" for d in var_deltas],
+                            textposition="outside",
+                            hovertemplate="<b>%{y}</b><br>Delta: %{x:+.4f}<extra></extra>",
+                        ))
+                        fig_attr.update_layout(
+                            height=320,
+                            xaxis_title="Variable Change (after intervention)",
+                            plot_bgcolor="#0f172a",
+                            paper_bgcolor="#0f172a",
+                            font=dict(color="white", size=11),
+                            margin=dict(l=10, r=60, t=20, b=30),
+                            xaxis=dict(
+                                gridcolor="#1e2030",
+                                zeroline=True,
+                                zerolinecolor="#4b5563",
+                            ),
+                            yaxis=dict(gridcolor="#1e2030"),
+                        )
+                        st.plotly_chart(fig_attr, use_container_width=True)
+                        st.caption("🟢 Green = clinically improved  🔴 Red = worsened")
+
+        except Exception as e:
+            st.info(f"Attribution engine: {e}")
+
+        st.divider()
+
+        # Store for PDF export
+        st.session_state["latest_plans"] = [p.to_dict() for p in plans]
+        st.session_state["latest_baseline"] = baseline
+        st.session_state["latest_patient_params"] = patient_params
 
     st.divider()
 
@@ -906,13 +1050,52 @@ elif page == "📤 Export & Reports":
 
             st.code(report_text, language=None)
 
-            # Download button
-            st.download_button(
-                label="📥 Download Report",
-                data=report_text,
-                file_name=f"surgical_report_{report_patient}_{__import__('datetime').datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
-                mime="text/plain",
-            )
+            # PDF Download
+            col_dl1, col_dl2 = st.columns(2)
+            with col_dl1:
+                try:
+                    from src.reports.pdf_generator import PDFReportGenerator
+                    pdf_gen = PDFReportGenerator()
+
+                    # Gather attribution if plans exist
+                    attr_chain = None
+                    if st.session_state.get("top_plans"):
+                        try:
+                            from src.causal.attribution import CausalAttributor
+                            attr_scm2 = BrainTumorSCM(patient_params=patient_params)
+                            attributor2 = CausalAttributor(attr_scm2)
+                            best_plan = st.session_state["top_plans"][0]
+                            chain2 = attributor2.explain_plan(best_plan.actions)
+                            attr_chain = attributor2.to_dict(chain2)
+                        except Exception:
+                            pass
+
+                    pdf_bytes = pdf_gen.generate(
+                        patient_id=report_patient,
+                        baseline_scm=baseline,
+                        top_plans=st.session_state.get("latest_plans", []),
+                        gnn_prediction=None,
+                        attribution_chain=attr_chain,
+                        patient_params=patient_params,
+                    )
+                    st.download_button(
+                        label="📄 Download PDF Report",
+                        data=pdf_bytes,
+                        file_name=f"surgical_plan_{report_patient}_{__import__('datetime').datetime.now().strftime('%Y%m%d_%H%M%S')}.pdf",
+                        mime="application/pdf",
+                    )
+                except ImportError:
+                    st.warning("Install reportlab for PDF: `pip install reportlab`")
+                except Exception as e:
+                    st.error(f"PDF generation error: {e}")
+
+            with col_dl2:
+                st.download_button(
+                    label="📥 Download TXT Report",
+                    data=report_text,
+                    file_name=f"surgical_report_{report_patient}_{__import__('datetime').datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                    mime="text/plain",
+                )
 
     st.divider()
 

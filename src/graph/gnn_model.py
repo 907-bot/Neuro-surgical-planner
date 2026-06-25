@@ -98,8 +98,8 @@ if PYG_AVAILABLE:
         def __init__(
             self,
             in_channels: int = 14,     # matches NodeFeatures.to_vector()
-            hidden_channels: int = 128,
-            num_layers: int = 4,
+            hidden_channels: int = 64,
+            num_layers: int = 3,
             heads: int = 4,
             dropout: float = 0.15,
         ):
