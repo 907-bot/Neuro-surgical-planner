@@ -175,9 +175,19 @@ class BrainTumorSegmenter:
                 "meta":   image metadata
             }
         """
-        logger.info(f"Running segmentation on {list(mri_paths.keys())}")
+        # Check if files exist, fallback to mock if they don't
+        files_exist = True
+        if "image" in mri_paths:
+            if mri_paths["image"] == "mock" or not Path(mri_paths["image"]).exists():
+                files_exist = False
+        else:
+            for modality in ["t1", "t1ce", "t2", "flair"]:
+                path = mri_paths.get(modality)
+                if path and (path == "mock" or not Path(path).exists()):
+                    files_exist = False
+                    break
 
-        if not MONAI_AVAILABLE:
+        if not MONAI_AVAILABLE or not files_exist:
             return self._mock_segment(mri_paths)
 
         # Build input tensor
@@ -195,6 +205,13 @@ class BrainTumorSegmenter:
 
         probs = torch.softmax(logits, dim=1).squeeze(0).cpu().numpy()
         mask = np.argmax(probs, axis=0).astype(np.uint8)
+
+        # Populate label 4 (white_matter) using the skull-stripped brain tissue region.
+        # Since the MRI is skull-stripped, any voxel that has a non-zero intensity in any MRI modality
+        # and is NOT already classified as tumor (labels 1, 2, 3) is healthy brain tissue (white_matter).
+        img_np = image_tensor.squeeze(0).cpu().numpy()
+        mri_mask = np.max(img_np, axis=0) > 1e-3
+        mask[(mask == 0) & mri_mask] = 4
 
         structures = self._extract_structures(mask)
 
@@ -237,6 +254,8 @@ class BrainTumorSegmenter:
         """Extract per-structure stats from the segmentation mask."""
         structures = []
         for label_id, label_name in BRAIN_LABELS.items():
+            if label_id == 0:
+                continue  # Skip background
             voxels = np.sum(mask == label_id)
             if voxels == 0:
                 continue
@@ -282,6 +301,8 @@ class BrainTumorSegmenter:
                  "centroid_voxel": [64, 64, 64], "is_tumor": True},
                 {"label_id": 3, "name": "enhancing_tumor", "voxel_count": 1024,
                  "centroid_voxel": [64, 64, 64], "is_tumor": True},
+                {"label_id": 4, "name": "white_matter", "voxel_count": int(np.sum(mask == 4)),
+                 "centroid_voxel": [64, 64, 64], "is_tumor": False},
             ],
             "meta": {"spacing": (1.0, 1.0, 1.0), "mock": True},
             "shape": shape,

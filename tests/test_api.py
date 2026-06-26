@@ -144,6 +144,9 @@ def test_knowledge_graph_blood_supply():
 
 def test_create_patient():
     """Test create patient endpoint."""
+    # Ensure patient doesn't already exist from previous runs
+    client.delete("/patients/TEST001")
+
     response = client.post(
         "/patients",
         json={
@@ -169,6 +172,9 @@ def test_list_patients():
 
 def test_get_patient():
     """Test get patient endpoint."""
+    # Ensure patient doesn't already exist from previous runs
+    client.delete("/patients/TEST002")
+
     # First create a patient
     client.post(
         "/patients",
