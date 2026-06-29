@@ -40,6 +40,7 @@ class PlannerState(TypedDict):
     graph_summary:      Dict
     gnn_prediction:     Dict
     scm_state:          Dict
+    scm_instance:      Optional[Any]  # v2.0: Full SCM instance for detailed reports
     intervention_results: List[Dict]
     candidate_plans:    List[Dict]
     top_plans:          List[Dict]
@@ -171,69 +172,208 @@ class RiskAgent:
 
 
 class ReportAgent:
-    """Generates a structured surgical planning report."""
+    """
+    Generates a structured surgical planning report — v2.0 CLINICAL SAFETY VERSION.
+    
+    Includes:
+    - Domain-specific neural function analysis
+    - Complication risk report
+    - Recovery decomposition
+    - Clinical safety warnings
+    - Comprehensive FDA-style disclaimers
+    """
 
     def run(self, state: PlannerState) -> Dict:
-        logger.info("ReportAgent: generating surgical report")
+        logger.info("ReportAgent: generating v2.0 surgical report")
 
         patient_id   = state.get("patient_id", "UNKNOWN")
         graph        = state.get("graph_summary", {})
         scm          = state.get("scm_state", {})
         top_plans    = state.get("top_plans", [])
         gnn          = state.get("gnn_prediction", {})
+        scm_instance = state.get("scm_instance")  # v2.0: Full SCM for detailed reports
 
         lines = [
-            "=" * 60,
-            f"CAUSAL SURGICAL PLANNING REPORT",
+            "=" * 70,
+            f"CAUSAL SURGICAL PLANNING REPORT — v2.0",
             f"Patient: {patient_id}",
-            "=" * 60,
+            f"Generated: {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M')}",
+            "=" * 70,
             "",
+        ]
+
+        # ── v2.0: Clinical Safety Header ──────────────────────────────────────
+        lines += [
+            "╔" + "═" * 68 + "╗",
+            "║" + " " * 68 + "║",
+            "║  ⚠️  CLINICAL SAFETY NOTICE — RESEARCH USE ONLY ⚠️                ║",
+            "║" + " " * 68 + "║",
+            "║  • This system is a RESEARCH SIMULATION TOOL, NOT a medical device  ║",
+            "║  • NOT validated for real patient surgical decisions              ║",
+            "║  • All outputs must be reviewed by a qualified neurosurgeon       ║",
+            "║  • Individual patient physiology may differ significantly          ║",
+            "║  • Missing: patient age, histology, GCS, eloquence, etc.          ║",
+            "║" + " " * 68 + "║",
+            "╚" + "═" * 68 + "╝",
+            "",
+        ]
+
+        # ── Anatomical Summary ─────────────────────────────────────────────────
+        lines += [
             "ANATOMICAL SUMMARY",
-            f"  Tumor structures:     {graph.get('tumor_structures', 0)}",
+            "-" * 70,
+            f"  Tumor structures:       {graph.get('tumor_structures', 0)}",
             f"  Total tumor volume:   {graph.get('tumor_volume_mm3', 0):.1f} mm³",
-            f"  Critical structures:  {graph.get('critical_structures', 0)}",
+            f"  Critical structures:   {graph.get('critical_structures', 0)}",
             f"  High-risk proximities: {len(graph.get('high_risk_proximities', []))}",
-            "",
+        ]
+
+        # v2.0: High-risk proximity details
+        for prox in graph.get('high_risk_proximities', [])[:3]:
+            lines.append(f"    ⚠ {prox.get('tumor','')} → {prox.get('critical_structure','')} "
+                       f"({prox.get('distance_mm', 0):.1f}mm)")
+
+        lines.append("")
+
+        # ── Baseline Physiological State ──────────────────────────────────────
+        lines += [
             "BASELINE PHYSIOLOGICAL STATE (SCM)",
+            "-" * 70,
             f"  Blood flow:           {scm.get('blood_flow', 0):.0%}",
             f"  Oxygen saturation:    {scm.get('oxygen_saturation', 0):.0%}",
             f"  Intracranial pressure:{scm.get('intracranial_pressure', 0):.0%} (normalized)",
             f"  Neural function:      {scm.get('neural_function', 0):.0%}",
             f"  Baseline recovery:    {scm.get('recovery_score', 0):.0%}",
+            f"  Surgical risk:       {scm.get('surgical_risk', 0):.0%}",
             "",
+        ]
+
+        # ── v2.0: Domain-Specific Neural Function ─────────────────────────────
+        if scm_instance:
+            domain_report = scm_instance.get_domain_function_report()
+            lines += [
+                "DOMAIN-SPECIFIC NEURAL FUNCTION",
+                "-" * 70,
+            ]
+            for domain, data in domain_report.items():
+                lines.append(
+                    f"  {domain:22s}: {data['value']*100:5.1f}% → {data['clinical_interpretation']}"
+                )
+            lines.append("")
+
+            # ── v2.0: Complication Risk Report ────────────────────────────────
+            comp_report = scm_instance.get_complication_risk_report()
+            lines += [
+                "COMPLICATION RISK ASSESSMENT",
+                "-" * 70,
+            ]
+            for comp_key, comp_data in comp_report.items():
+                risk_indicator = "🔴" if comp_data['risk_level'] == 'CRITICAL' else \
+                                "🟠" if comp_data['risk_level'] == 'HIGH' else \
+                                "🟡" if comp_data['risk_level'] == 'MODERATE' else "🟢"
+                lines.append(
+                    f"  {risk_indicator} {comp_data['probability']:5.1f}% | {comp_key:28s} | "
+                    f"({comp_data['risk_level']})"
+                )
+            lines.append("")
+
+            # ── v2.0: Recovery Decomposition ───────────────────────────────────
+            recovery_report = scm_instance.get_recovery_decomposition_report()
+            lines += [
+                "RECOVERY DECOMPOSITION",
+                "-" * 70,
+                f"  Overall Recovery Score: {recovery_report['overall_recovery_score']:.1f}%",
+                f"  Interpretation: {recovery_report['interpretation'][:60]}",
+                "",
+            ]
+            for domain, data in recovery_report['domains'].items():
+                lines.append(
+                    f"    {domain:28s}: {data['value']:5.1f}% ({data['outcome']:9s}) "
+                    f"[weight={data['weight']:.2f}]"
+                )
+            lines.append("")
+
+            # ── v2.0: Clinical Safety Warnings ─────────────────────────────────
+            warnings = scm_instance.get_clinical_safety_warnings()
+            if warnings:
+                lines += [
+                    "CLINICAL SAFETY WARNINGS",
+                    "-" * 70,
+                ]
+                for w in warnings:
+                    severity_icon = "🔴" if w['level'] == 'CRITICAL' else \
+                                  "🟠" if w['level'] == 'HIGH' else "🟡"
+                    lines.append(f"  {severity_icon} [{w['level']}] {w['condition']}")
+                    lines.append(f"     → {w['recommendation'][:65]}")
+                lines.append("")
+
+        # ── GNN Risk Assessment ───────────────────────────────────────────────
+        lines += [
             "GNN RISK ASSESSMENT",
-            f"  Blood loss estimate:  {gnn.get('blood_loss_ml', 'N/A')} mL",
-            f"  Nerve damage prob:    {gnn.get('nerve_damage_prob', 'N/A'):.0%}" if gnn else "  (GNN not available)",
-            f"  Mortality risk:       {gnn.get('mortality_risk', 'N/A'):.0%}" if gnn else "",
-            "",
+            "-" * 70,
+        ]
+        if gnn:
+            lines += [
+                f"  Blood loss estimate:  {gnn.get('blood_loss_ml', 'N/A')} mL",
+                f"  Nerve damage prob:   {gnn.get('nerve_damage_prob', 0):.0%}",
+                f"  Mortality risk:       {gnn.get('mortality_risk', 0):.0%}",
+                f"  ICU days estimate:   {gnn.get('icu_days_estimate', 'N/A')}",
+            ]
+        else:
+            lines.append("  ⚠  GNN model not available — predictions use population averages")
+
+        lines.append("")
+
+        # ── Top Surgical Plans ─────────────────────────────────────────────────
+        lines += [
             "TOP 5 SURGICAL PLANS (Monte-Carlo Counterfactual Search)",
-            "-" * 60,
+            "-" * 70,
         ]
 
         for plan in top_plans:
+            risk_icon = "🔴" if plan.get('risk_level') == 'HIGH' else "🟡"
             lines += [
                 f"",
-                f"  RANK {plan.get('rank', '?')} [{plan.get('risk_level', '')}]",
+                f"  {risk_icon} RANK {plan.get('rank', '?')} [{plan.get('risk_level', '')}]",
                 f"  Actions: {' → '.join(plan.get('actions', []))}",
-                f"  Expected recovery:  {plan.get('expected_recovery', 0):.0%}",
-                f"  Expected risk:      {plan.get('expected_risk', 0):.0%}",
-                f"  Net utility:        {plan.get('net_utility', 0):+.3f}",
-                f"  Blood loss:         {plan.get('blood_loss_ml', 0):.0f} mL",
-                f"  Nerve damage prob:  {plan.get('nerve_damage_prob', 0):.0%}",
-                f"  ICU days:           {plan.get('icu_days', 0):.1f}",
-                f"  95% CI recovery:    {plan.get('confidence_95', [0,0])[0]:.0%} – {plan.get('confidence_95', [0,0])[1]:.0%}",
+                f"  Expected recovery:   {plan.get('expected_recovery', 0):.0%}",
+                f"  Expected risk:       {plan.get('expected_risk', 0):.0%}",
+                f"  Net utility:         {plan.get('net_utility', 0):+.3f}",
+                f"  Blood loss:          {plan.get('blood_loss_ml', 0):.0f} mL",
+                f"  Nerve damage prob:   {plan.get('nerve_damage_prob', 0):.0%}",
+                f"  ICU days:            {plan.get('icu_days', 0):.1f}",
+                f"  95% CI recovery:    {plan.get('confidence_95', [0,0])[0]:.0%} – "
+                f"{plan.get('confidence_95', [0,0])[1]:.0%}",
             ]
 
         lines += [
             "",
-            "=" * 60,
+            "=" * 70,
             "RECOMMENDED PLAN: " + (
                 " → ".join(top_plans[0].get("actions", [])) if top_plans else "UNDETERMINED"
             ),
-            "=" * 60,
+            "=" * 70,
             "",
-            "⚠  This report is generated by a research AI system.",
-            "   All surgical decisions must be made by qualified surgeons.",
+        ]
+
+        # ── v2.0: Comprehensive Disclaimer ────────────────────────────────────
+        lines += [
+            "╔" + "═" * 68 + "╗",
+            "║" + " " * 68 + "║",
+            "║  ⚠️  DISCLAIMER — READ BEFORE USING THIS REPORT ⚠️                ║",
+            "║" + " " * 68 + "║",
+            "║  1. This system is a RESEARCH PROTOTYPE. It is NOT FDA-cleared.    ║",
+            "║  2. Predictions are SIMULATION OUTPUTS based on mathematical      ║",
+            "║     models and may not reflect actual patient outcomes.             ║",
+            "║  3. Clinical decisions must ONLY be made by qualified surgeons     ║",
+            "║     with full access to patient history, imaging, and exam.     ║",
+            "║  4. Model uncertainty: confidence intervals reflect model        ║",
+            "║     variance, NOT necessarily true outcome variance.               ║",
+            "║  5. Missing confounders: age, histology, GCS, eloquence, and      ║",
+            "║     other critical variables may not be fully represented.         ║",
+            "║  6. Report generated by AI — verify all information manually.   ║",
+            "║" + " " * 68 + "║",
+            "╚" + "═" * 68 + "╝",
         ]
 
         report = "\n".join(lines)
@@ -278,6 +418,7 @@ class SurgicalPlannerOrchestrator:
             "graph_summary":        {},
             "gnn_prediction":       gnn_prediction or {},
             "scm_state":            {},
+            "scm_instance":         self.scm,  # v2.0: Pass SCM instance for detailed reports
             "intervention_results": [],
             "candidate_plans":      [],
             "top_plans":            [],
